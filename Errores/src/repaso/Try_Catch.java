@@ -1,11 +1,12 @@
 package repaso;
 
-public class Ejericicio1 
+public class Try_Catch 
 {
 
 	public static void main(String[] args) 
 	{
-		try {
+		try 
+		{
 			int a= 1;
 			int b= 0;
 			

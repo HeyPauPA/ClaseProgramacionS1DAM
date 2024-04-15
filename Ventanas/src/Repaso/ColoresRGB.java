@@ -105,7 +105,10 @@ public class ColoresRGB extends JFrame {
 		
 		//-------- SLIDERS --------
 		
-		sliderR = new JSlider();
+		sliderR = new JSlider(); //tengo q inicializar en el inicio
+		sliderG = new JSlider();
+		sliderB = new JSlider();
+		
 		sliderR.addChangeListener(new ChangeListener() 
 		{
 			public void stateChanged(ChangeEvent e) 
@@ -119,7 +122,7 @@ public class ColoresRGB extends JFrame {
 		sliderR.setBounds(118, 156, 200, 26);
 		contentPane.add(sliderR);
 
-		sliderG = new JSlider();
+		
 		sliderG.addChangeListener(new ChangeListener() 
 		{
 			public void stateChanged(ChangeEvent e) 
@@ -132,7 +135,7 @@ public class ColoresRGB extends JFrame {
 		sliderG.setBounds(118, 192, 200, 26);
 		contentPane.add(sliderG);
 
-		sliderB = new JSlider();
+		
 		sliderB.addChangeListener(new ChangeListener() 
 		{
 			public void stateChanged(ChangeEvent e) 

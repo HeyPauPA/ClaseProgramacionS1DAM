@@ -38,7 +38,7 @@ public class Ejericicio_Throw {
 	//EN 2 PASOS
 	private static void prueba2() throws Exception 
 	{
-		throw new Exception();
+		throw new ErrorDeMisHuevosMorenos_Exception();
 	  //Throw + (todo despues del igual) → A.K.: new + Exception  
 	}
 }
