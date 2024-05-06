@@ -22,14 +22,11 @@ public class RecuperarTemperaturas {
 		{
 			//2 streams en 1 paso
 			stream = new DataInputStream(new FileInputStream(archivo));
-
 		
 			while (true) 
 			{
 				System.out.println(stream.readDouble());	
-			}
-
-			
+			}		
 		} 
 		//Esta excepcion salta ciuando termina el archivo, muchas veces no habra q hacer nada
 		catch (EOFException e) 

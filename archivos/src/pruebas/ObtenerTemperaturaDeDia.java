@@ -12,7 +12,7 @@ public class ObtenerTemperaturaDeDia {
 
 	public static void main(String[] args) 
 	{
-		// Pedimos por teclado el dia que quiere cpnsultar
+		// Pedimos por teclado el dia que quiere consultar
 		// y recuperamos esa temperatura concreta
 		
 		//pedir por teclado el dia
@@ -35,16 +35,6 @@ public class ObtenerTemperaturaDeDia {
 			//2 streams en 1 paso
 			stream = new DataInputStream(new FileInputStream(archivo));
 		
-//			while (true) 
-//			{
-//				//como es while se utiliza un contador (vamo pa hacerlo un for)
-//				contador++;
-//				if (dia == contador) 
-//				{
-//					System.out.println(stream.readDouble());	
-//				}
-//			}
-			
 			for (int i = 0; i < dia; i++) 
 			{
 				stream.readDouble();	

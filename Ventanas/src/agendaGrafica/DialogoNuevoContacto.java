@@ -16,24 +16,13 @@ public class DialogoNuevoContacto extends JDialog {
 	private static final long serialVersionUID = 1L;
 	private final JPanel contentPanel = new JPanel();
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		try {
-			DialogoNuevoContacto dialog = new DialogoNuevoContacto();
-			dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
-			dialog.setVisible(true);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
-
-	/**
-	 * Create the dialog.
-	 */
+	/*
+	 Create the dialog.
+	 */ 
+	//al ser el constructor le damos los datos pedidos en la ventana
 	public DialogoNuevoContacto(JFrame padre, boolean modal) 
 	{
+		//hay q poner el super para q el dialogo sepa q es hijo de la ventana
 		super(padre, modal); 
 		setBounds(100, 100, 450, 300);
 		getContentPane().setLayout(new BorderLayout());

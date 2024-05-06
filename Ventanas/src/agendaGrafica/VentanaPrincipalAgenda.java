@@ -57,16 +57,16 @@ public class VentanaPrincipalAgenda extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JButton btnNewButton = new JButton("Añadir Contacto");
-		btnNewButton.addActionListener(new ActionListener() {
+		JButton btnAñadirContacto = new JButton("Añadir Contacto");
+		btnAñadirContacto.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) 
 			{
 				anadirContacto();
 			}
 
 		});
-		btnNewButton.setBounds(78, 195, 128, 23);
-		contentPane.add(btnNewButton);
+		btnAñadirContacto.setBounds(78, 195, 128, 23);
+		contentPane.add(btnAñadirContacto);
 		
 		JButton btnEliminarContacto = new JButton("Eliminar Contacto");
 		btnEliminarContacto.addActionListener(new ActionListener() {
@@ -82,6 +82,7 @@ public class VentanaPrincipalAgenda extends JFrame {
 		scrollPane.setBounds(78, 21, 293, 163);
 		contentPane.add(scrollPane);
 		
+		//TABLA (al cargala normalmente se borra pero la dejamos por si acaso)
 		table = new JTable();
 		table.setModel(new DefaultTableModel
 		(
@@ -131,6 +132,7 @@ public class VentanaPrincipalAgenda extends JFrame {
 		this.agenda.add(new Contacto("Maria" ,41283935));
 		
 	}
+	
 	private void cargarTabla() 
 	{
 		// Este método sirve para cargar todos los contactos de la agenda en la tabla
@@ -150,13 +152,14 @@ public class VentanaPrincipalAgenda extends JFrame {
 		//COPIAMOS EL CONSTRUCTOR DE LA TABLA
 		table.setModel(new DefaultTableModel
 			(
-				datos,    				   //DATOS
+				datos,    				   //LE PASAMOS LOS DATOS CREADOS ANTERIORMENTE
 				
 				new String[] 
 				{
 					"Nombre", "Telefono"  //HEADERS
 				}
-			) {
+			) 
+		{
 			//CARACTERISTICAS
 				Class[] columnTypes = new Class[] {
 					String.class, Long.class
@@ -171,20 +174,29 @@ public class VentanaPrincipalAgenda extends JFrame {
 					return columnEditables[column];
 				}
 			});
+		
 			table.getColumnModel().getColumn(0).setPreferredWidth(93);
 			table.getColumnModel().getColumn(1).setPreferredWidth(196);
 		
 	}
+	
 	private void anadirContacto() 
 	{
 		//en la ventana principal
-		//1. creamos el objeto de la ventana para llamarlo
-		DialogoNuevoContacto nuevoContanco = new DialogoNuevoContacto(this,true);
+		//1. creamos el objeto del dialogo para llamarlo  + quien es el padre(THIS) + modal →true/false
+		DialogoNuevoContacto dialogo = new DialogoNuevoContacto(this,true);
+		
+		//ponemos el dialogo relativo al padre (ventana)
+		dialogo.setLocationRelativeTo(this);
+		
+		//hacer visible el dialogo
+		dialogo.setVisible(true);
 		
 		//recargo la tabla porq hubo cambios
 		cargarTabla();
 		
 	}
+	
 	private void eliminarContacto() 
 	{
 		//obtener la fila seleccionada por el usuario en la tabla 
